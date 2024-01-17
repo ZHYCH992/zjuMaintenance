@@ -1,0 +1,125 @@
+.antdModal {
+	:global {
+		.ant-modal-body {
+			padding: 0;
+		}
+		.ant-modal-close,
+		.ant-modal-footer {
+			display: none;
+		}
+	}
+}
+.modalContent {
+	display: flex;
+	flex-direction: column;
+	height: 80vh;
+	position: relative;
+	:global {
+		header {
+			display: flex;
+			justify-content: start;
+			align-items: center;
+			padding: 15px 50px;
+			background: #383cf8 url(@/assets/image/headBG.png) no-repeat center;
+			font-size: 28px;
+			font-weight: bold;
+			color: #fff;
+			.icon {
+				padding-right: 1em;
+			}
+		}
+		main {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			max-height: calc(100% - 74px);
+			.dialogue {
+				background: #f2f5fc url(@/assets/image/modalBG.png) no-repeat center;
+				flex: 1;
+				padding: 1em 2em;
+				overflow-y: auto;
+				display: flex;
+				flex-direction: column;
+				scroll-behavior: smooth;
+				.contentMsg {
+					display: flex;
+					margin-bottom: 1em;
+					line-height: 2;
+					&:nth-last-child(1) {
+						margin-bottom: 0;
+					}
+					> div {
+						box-shadow: 0px 3px 20px 0px rgba(56, 105, 198, 0.11);
+						background: #fff;
+						display: inline-block;
+						&.sender {
+							border-radius: 0px 20px 20px 20px;
+							padding: 0.5em 1.5em 0.5em 1em;
+							margin-right: auto;
+						}
+						&.receiver {
+							border-radius: 20px 0px 20px 20px;
+							padding: 0.5em 1em 0.5em 1.5em;
+							margin-left: auto;
+						}
+					}
+				}
+			}
+			.input {
+				font-size: 14px;
+				display: flex;
+				flex-direction: column;
+				transition: 0.8s ease-in-out;
+				.space {
+					color: #383cf8;
+					background-color: #dfe2fb;
+					line-height: 3;
+					padding: 0 2em;
+					span {
+						cursor: pointer;
+					}
+				}
+				.useInput {
+					padding: 3em 2em;
+					display: flex;
+					flex-direction: column;
+					justify-content: space-between;
+					flex: 1;
+					overflow: auto;
+					.address {
+						color: #999999;
+						.addressInput {
+							width: calc(100% - 3em);
+						}
+					}
+					.describe {
+						display: flex;
+						flex-direction: row;
+						line-height: 2;
+						.label {
+							font-weight: bold;
+							white-space: nowrap;
+						}
+						textarea.ant-input {
+							padding: 0;
+							line-height: 2;
+						}
+					}
+				}
+				.sending {
+					margin-left: auto;
+				}
+			}
+			.mask {
+				position: absolute;
+				inset: 0;
+				background: rgba(255, 255, 255, 0.1);
+				backdrop-filter: blur(5px);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: #333;
+			}
+		}
+	}
+}
